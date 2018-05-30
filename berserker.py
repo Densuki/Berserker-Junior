@@ -26,7 +26,7 @@ client = discord.Client()
 # ===================================================
 COR = 0x690FC3
 Token = secreto.seu_token()
-bot = commands.Bot(command_prefix='%')
+#bot = commands.Bot(command_prefix='%')
 # cargos = cargos.cargos()
 # coin = moedas.moeda()
 # msg_id = None
@@ -50,7 +50,6 @@ async def on_ready():
     print(client.user.id)
     print('===================================================')
     print('Version - 1.2')
-    print('Dai Ikuyo! WariansForce!')
     print('===================================================')
 
 
@@ -77,7 +76,7 @@ async def on_message(text):
 
 @client.event
 async def on_message(message):  # Condição
-    if message.content.lower().startswith('fala'):  # PREFIX DO COMANDO (Deste, no caso)
+    if message.content.lower().startswith('%%'):  # PREFIX DO COMANDO (Deste, no caso)
         await client.send_message(message.channel,
                                   "**não irei falar! Você não manda em mim!**")  # Mensagem como resultado
 
@@ -87,7 +86,7 @@ async def on_message(message):  # Condição
     if message.content.lower().startswith('%%'):
         await client.send_message(message.channel, "~~viado~~ gente boa")
 
-    if message.content.lower().startswith('dino'):
+    if message.content.lower().startswith('%%'):
         await client.send_message(message.channel, "**Meu Mestre!**")
 
     if message.content.lower().startswith('berserker jr'):
@@ -118,27 +117,6 @@ async def on_message(message):  # Condição
         botmsg = await client.send_message(message.channel, embed=fazer)
 
         await client.send_message(message.channel, "http://prntscr.com/jhraie")
-
-    if message.content.lower().startswith('%disgrace'):  # PREFIX DO COMANDO (Deste, no caso)
-        disgrace = discord.Embed(
-            title="**PORRA**",
-            color=COR, )
-
-        botmsg = await client.send_message(message.channel, embed=disgrace)
-
-        await client.send_message(message.channel, "https://i.imgur.com/b2Aj1l2.png")
-
-    if message.content.lower().startswith('thinking'):
-        thinking = discord.Embed(
-            title="Fascinante!",
-            color=COR, )
-
-        botmsg = await client.send_message(message.channel, embed=thinking)
-
-        await client.send_message(message.channel, "http://prntscr.com/jnu8g3")
-        await client.send_message(message.channel, "http://prntscr.com/jnu2t2")
-        await client.send_message(message.channel, "http://prntscr.com/jnu31b")
-        await client.send_message(message.channel, "http://prntscr.com/jnu3a2")
 
     # ===================================================
     # FLIP COIN
