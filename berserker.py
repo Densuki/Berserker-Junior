@@ -3,7 +3,7 @@
 # ===================================================
 
 import discord
-# import asyncio
+import asyncio
 
 import secreto
 import random
@@ -11,6 +11,7 @@ import random
 
 # ----------------------------------------------------
 
+from discord import member
 from discord.ext import commands
 
 # ----------------------------------------------------
@@ -26,10 +27,10 @@ client = discord.Client()
 # ===================================================
 COR = 0x690FC3
 Token = secreto.seu_token()
-#bot = commands.Bot(command_prefix='%')
+bot = commands.Bot(command_prefix='#')
 # cargos = cargos.cargos()
 # coin = moedas.moeda()
-# msg_id = None
+msg_id = None
 msg_user = None
 
 
@@ -63,9 +64,7 @@ async def on_ready():
 
 @client.event
 async def on_message(text):
-    # if text.author.id == '445388160969605131': return # Nayron
-    # if text.author.id == '451072026023690241': return # Nayron Debug [A.I Ignis]
-    # if text.author.id == '451510020614389761': return # Berserker Debug
+
     if text.author.id == '451519133838737409': return # Berserker Jr.
 
 
@@ -94,11 +93,6 @@ async def on_message(message):  # Condição
                                   "Olá, me chamo **Berserker Jr.**. Prazer em conhecê-los. Serei o **BOT** desta GUILD"
                                   "com a função e finalidade de ser a ferramenta de informação e de eventos de vocês."
                                   "Espero que gostem de mim :smile:")
-
-    ## if message.content.lower().startswith('ignis'):
-    ##    await client.send_message(message.channel,
-    ##                              "Olá, me chamo **Ignis**. Sou uma **A.I.** com função de Debug e ser a ferramenta "
-    ##                              "de testes do @Nayron#0766. Espero que gostem de mim :smile:")
 
 
         # ===================================================
@@ -167,6 +161,25 @@ async def on_message(message):  # Condição
 # ===================================================
 # INFO
 # ===================================================
+
+# ===================================================
+# WELCOME | LEAVE
+# ===================================================
+
+@client.event
+async def on_member_join(member):
+    canal = client.get_channel("389927650816294925")
+    regras = client.get_channel("390906027983372319")
+    msg = "Seja Bem-Vindo {}!\n leia as {}\n Shinzou wo Sasageyo!!".format(member.mention, regras.mention)
+    await client.send_message(canal, msg)  # substitua canal por member para enviar a msg no DM do membro
+
+
+@client.event
+async def on_member_remove(member):
+    canal = client.get_channel("389927650816294925")
+    msg = "É uma pena que mais um de nossa tropa acabara de nos deixar {}".format(member.mention)
+    await client.send_message(canal, msg)  # substitua canal por member para enviar a msg no DM do membro
+
 
 # ===================================================
 # MUTE
