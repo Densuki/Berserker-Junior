@@ -170,7 +170,7 @@ async def on_message(message):  # Condição
 async def on_member_join(member):
     canal = client.get_channel("389927650816294925")
     regras = client.get_channel("390906027983372319")
-    msg = "Seja Bem-Vindo {}!\n leia as {}\n Shinzou wo Sasageyo!!".format(member.mention, regras.mention)
+    msg = "Seja Bem-Vindo {}!\n leia as {}\n".format(member.mention, regras.mention)
     await client.send_message(canal, msg)  # substitua canal por member para enviar a msg no DM do membro
 
 
