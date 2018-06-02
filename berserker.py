@@ -85,8 +85,8 @@ async def on_message(message):  # Condição
     #if message.content.lower().startswith('tururu'):
     #    await client.send_message(message.channel, "https://youtu.be/wEWF2xh5E8s")
 
-    if message.content.lower().startswith('%%'):
-        await client.send_message(message.channel, "**Meu Mestre!**")
+    if message.content.lower().startswith('download'):
+        await client.send_message(message.channel, "http://www.mediafire.com/file/xhy7s8hcsotwv8s/RCFinal.exe")
 
     if message.content.lower().startswith('berserker jr'):
         await client.send_message(message.channel,
